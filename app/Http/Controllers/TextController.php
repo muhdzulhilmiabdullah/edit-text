@@ -14,9 +14,16 @@ class TextController extends Controller
     //view
      public function index()
     {
-        $receipt_texts = TextEdit::all();
+        $projects = TextEdit::all();
         
-        return view('/addtext'); //use textedit blade
+            return view('datatabletext', compact('projects')); //table
+    }
+
+    public function view(){
+
+        $projects = TextEdit::get();
+
+        return view('textview', compact('projects'));
     }
 
 //add new text
@@ -25,8 +32,8 @@ class TextController extends Controller
     {
 
       $validator = \Validator::make($request->all(), [
-        'project_title' => 'required',
-        'project_code' => 'required',
+        'project_name' => 'required', 
+        'project_code' => 'required|unique:text_edits,project_code',
         'project_text' => 'required'
            
         ]);
@@ -38,38 +45,36 @@ class TextController extends Controller
         }
 
         //create new text
-        $project = new TextEdit; 
-        $project->project_title = $request->project_title;
-        $project->project_code = $request->project_code;
-        $project->project_text = $request->project_text;
-        $project->save();
+        $projects = new TextEdit; 
+        $projects->project_name = $request->project_name;
+        $projects->project_code = $request->project_code;
+        $projects->project_text = $request->project_text;
+        $projects->save();
 
-        return redirect('/')->with('info','Saved!');
+
+        return redirect('datatabletext')->with('info','NewText saved!');
     }
 
 //edit text 
 
-     public function editText(Request $request, $id)
+     public function edit($id)
     {
-        $this->validate($request, [
-        'project_title' => 'required',
-        'project_code' => 'required',
-        'project_text' => 'required',
-            
-        ]);
+        $projects = TextEdit::find($id);
 
-      $data = array(
+        return view('textedit', compact('projects','id')); 
 
-        'project_title' => $request->input('project_title'),
-        'project_code' => $request->input('project_code'),
-        'project_text' => $request->input('project_text'),
-        
-        );
+    }
 
-      TextEdit::where('id', $id) ->update($data);
+//update text
 
-      return redirect('datatabletext')->with('info','Update saved!'); 
+    public function update(Request $request, $id){
 
+        $project = TextEdit::find($id);
+        $project->project_name = $request->get('project_name');
+        $project->project_code = $request->get('project_code');
+        $project->project_text = $request->get('project_text');
+        $project->update();
+        return redirect('datatabletext')->with('Text updated !');
     }
 
 public function getHistoryText(request $request){

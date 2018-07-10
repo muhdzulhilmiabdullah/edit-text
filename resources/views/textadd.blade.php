@@ -5,7 +5,9 @@
   <div style="max-width: 100%; width: 500px; margin: auto; margin-top: 100px; border: solid 1px; padding: 20px; border-radius: 10px;">
 
 
-      <form class="form-horizontal" method="post" action="/store">
+      <form class="form-horizontal" method="POST" action="{{ url('/store')}}">
+
+                {{csrf_field()}}
 
                 @if (count($errors) > 0)
              <div class="alert alert-danger">

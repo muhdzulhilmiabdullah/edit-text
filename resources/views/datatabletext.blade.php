@@ -1,86 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
+@extends('layouts.app')
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+@section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet"/>
 
-<style>
-.datatablescenter {
-    text-align: center;
+ <div id="app">
+        @include('flashm')
 
-}
 
-.datatablesjustify {
-    text-align: justify;
+        @yield('content')
+    </div>
 
-}
 
-</style>
+        <a href="/addtext" class="btn btn-success" style="margin: 20px;" >Add new text</a>
 
-    <title>datatable test</title>
-</head>
-<body>
-
-     <div class="container">
-
-            <br/>
-
-            <h1 class="text-center">Tax Exemption Receipt Text </h1>
-
-            <br/> <br/>
-
-            <table class="cell-border compact stripe" id="users-table">
-
-               <thead>
-
+<div class="bordertext">
+            <table id="example" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Project Name</th>
+                    <th>Project Code</th>
+                    <th>Project Text</th>
+                    <td colspan="2">Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach ($projects as $project)
                     <tr>
-
-                        <th>Id</th>
-
-                        <th>Project Name</th>
-
-                        <th>Project Code</th>
-                        
-                        <th>Project Text</th>
-
-                        <th>Action</th>
-
+                        <td>{{ $project->id }}</td>
+                        <td class="center-td">{{ $project->project_name }}</td>
+                        <td class="center-td">{{ $project->project_code }}</td>
+                        <td class="text_justify">{{ $project->project_text }}</td>
+                        <td><a href="{{url('/editText')}}" class="btn btn-warning">Edit</a></td>
+                        <td><a href="{{url('TextController@destroy', $project['id'])}}" class="btn btn-danger">Delete</a></td>
                     </tr>
 
-                </thead>
-
+                    @endforeach
+                </tbody>
             </table>
+</div>
 
-        </div>
+<script>
 
-        <script src="//code.jquery.com/jquery.js"></script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
 
-        <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+</script>
 
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-        <script>
-        //this is the script dont change the #users-table
-        $(function() {
-            $('#users-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{!! route('get.data') !!}',
-                columns: [
-                    { data: 'id', name: 'id', className: "datatablescenter" },
-                    { data: 'project_name', name: 'project name', className: "datatablescenter" },
-                    { data: 'project_code', name: 'project code', className: "datatablescenter" },
-                    { data: 'project_text', name: 'project text', className: "datatablesjustify" }
-
-                ]
-            });
-        });
-        </script>
-
-        @stack('scripts')
-
-</body>
-</html>
+@endsection
 

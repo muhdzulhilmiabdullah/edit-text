@@ -13,26 +13,36 @@
 
 //homepage
 Route::get('/', function () {
-    return view('datatabletext');
+    return view('welcome');
 });
 
 //addtext
 Route::get('/addtext',function(){
 	return view('textadd');
 });
-
+//text view
+Route::get('/textview','TextController@view');
 //add text
-Route::post('/store','TextController@store');
+Route::post('/store','TextController@store'); //done
+//edit/update text
+Route::get('/editText/{id}','TextController@edit');
+Route::post('/updatetext/{id}','TextController@update');
+
+
+//table text
+Route::get('datatabletext', 'TextController@index');
 
 //text editText
 
-Route::resource('productCRUD','ProductCRUDController');
+
 //read text
 
 //datatable controller and display table text
-Route::get('datatabletext','MyDatatablesController@index'); //datatables page
-Route::get('get-data-my-datatables', ['as'=>'get.data','uses'=>'MyDatatablesController@getData']); //getdata
+//Route::get('datatabletext','MyDatatablesController@index'); //datatables page
+//Route::get('get-data-my-datatables', ['as'=>'get.data','uses'=>'MyDatatablesController@getData']); //getdata
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+

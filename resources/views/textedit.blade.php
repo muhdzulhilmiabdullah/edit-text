@@ -1,35 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
+@extends('layouts.app')
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+@section('content')
 
-	<title>Edit text</title>
-</head>
-<body style="align-content: center;">
   <div style="max-width: 100%; width: 500px; margin: auto; margin-top: 100px; border: solid 1px; padding: 20px; border-radius: 10px;">
-      <form >
+
+
+      <form class="form-horizontal" method="POST" action="{{url('/updatetext/{id}}}">
+
+                {{csrf_field()}}
+
+                @if (count($errors) > 0)
+             <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif  
+          
         <div class="form-group">
           <label for="project_name">Project Name</label>
-          <input type="text" class="form-control" name="project_name" placeholder="Project Name" required>
+          <input type="text" class="form-control" name="project_name" value="{{$project->project_name}}" placeholder="Project Name">
            <small style="font-size: 12px" id="texthelp" class="form-text text-muted">Place Project Name here.</small>
         </div>
 
         <div class="form-group">
           <label for="project_code">Project Code</label>
-          <input type="text" class="form-control" name="project_code" placeholder="Project Code" required>
+          <input type="number" class="form-control" name="project_code" value="{{$project->project_code}}" placeholder="Project Code">
            <small style="font-size: 12px" id="texthelp" class="form-text text-muted">Place Project Code here.</small>
         </div>
 
         <div class="form-group">
           <label for="project_text">Text</label>
-          <textarea rows="10" type="text" class="form-control" name="project_text" aria-describedby="emailHelp" placeholder="New text" required></textarea>
+          <textarea rows="10" type="text" class="form-control" name="project_text" value="{{$project->project_text}}" aria-describedby="emailHelp" placeholder="New text"></textarea>
           <small style="font-size: 12px;" id="texthelp" class="form-text text-muted">Place new text here.</small>
         </div>
         
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-success">Update</button>
       </form>
   </div>
+  
 
-</body>
-</html>
+
+@endsection
