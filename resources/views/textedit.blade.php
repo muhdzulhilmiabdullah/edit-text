@@ -21,19 +21,19 @@
           
         <div class="form-group">
           <label for="project_name">Project Name</label>
-          <input type="text" class="form-control" name="project_name" value="{{$project->project_name}}" placeholder="Project Name">
+          <input type="text" class="form-control" name="project_name" value="{{ old('project_name', $projects->project_name) }}" placeholder="Project Name">
            <small style="font-size: 12px" id="texthelp" class="form-text text-muted">Place Project Name here.</small>
         </div>
 
         <div class="form-group">
           <label for="project_code">Project Code</label>
-          <input type="number" class="form-control" name="project_code" value="{{$project->project_code}}" placeholder="Project Code">
+          <input type="number" class="form-control" name="project_code" value="{{ old('project_code', $projects->project_code) }}" placeholder="Project Code">
            <small style="font-size: 12px" id="texthelp" class="form-text text-muted">Place Project Code here.</small>
         </div>
 
         <div class="form-group">
           <label for="project_text">Text</label>
-          <textarea rows="10" type="text" class="form-control" name="project_text" value="{{$project->project_text}}" aria-describedby="emailHelp" placeholder="New text"></textarea>
+          <textarea rows="10" type="text" class="form-control" name="project_text" value="{{ old('project_text', $projects->project_text) }}" aria-describedby="emailHelp" placeholder="New text"></textarea>
           <small style="font-size: 12px;" id="texthelp" class="form-text text-muted">Place new text here.</small>
         </div>
         

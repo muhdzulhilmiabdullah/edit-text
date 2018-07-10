@@ -32,7 +32,7 @@
                         <td class="center-td">{{ $project->project_name }}</td>
                         <td class="center-td">{{ $project->project_code }}</td>
                         <td class="text_justify">{{ $project->project_text }}</td>
-                        <td><a href="{{url('/editText')}}" class="btn btn-warning">Edit</a></td>
+                        <td><a href="{{url('/editText/{id}')}}" class="btn btn-warning">Edit</a></td>
                         <td><a href="{{url('TextController@destroy', $project['id'])}}" class="btn btn-danger">Delete</a></td>
                     </tr>
 

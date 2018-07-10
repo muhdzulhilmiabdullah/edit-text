@@ -60,9 +60,8 @@ class TextController extends Controller
      public function edit($id)
     {
         $projects = TextEdit::find($id);
-
-        return view('textedit', compact('projects','id')); 
-
+        
+        return view('textedit', compact('projects'));
     }
 
 //update text
