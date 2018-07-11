@@ -36,7 +36,7 @@
           <textarea rows="10" type="text" class="form-control" name="project_text" value="{{ old('project_text', $projects->project_text) }}" aria-describedby="emailHelp" placeholder="New text"></textarea>
           <small style="font-size: 12px;" id="texthelp" class="form-text text-muted">Place new text here.</small>
         </div>
-        
+        {!! Form::model($projects, ['route' => ['textedit', $projects], 'method' => 'put', 'files' => true]) !!}
         <button type="submit" class="btn btn-success">Update</button>
       </form>
   </div>
