@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Area 51</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -78,12 +78,16 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                <img src="https://www.artlogic.com.au/sites/default/files/imagecache/product_full/graham-s-area-51-artlogic.jpg" width="20%">
+                <div  style="font-weight: medium;" class="title m-b-md">
+                    <div>Area 51 </div>
 
                 <div class="links">
                     <a href="datatabletext">Text</a>
+                    <a href="/excel">Excel Import</a>
+                    <a href="/kirabudget">Kira budjet v1.0</a>
+                    <a href="/kirabudget2">Kira budjet v2.0</a>
+                    <a href="/updateversion">Update notes</a>
                     
                 </div>
             </div>

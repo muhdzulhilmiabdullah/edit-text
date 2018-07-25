@@ -12,12 +12,26 @@
 */
 
 //homepage
+Route::get('/',function(){
+        return view('welcome');
+    });
+
+//kirabudget
+Route::get('/kirabudget',function(){
+        return view('budget.kirabudget');
+    });
+Route::get('/kirabudget2', 'TextController@kirabudgetIndex');
+
+//updates notes
+Route::get('/updateversion',function(){
+        return view('version.updateversion');
+    });
 
 
 //addtext
-Route::get('/addtext',function(){
-	return view('textadd');
-});
+	Route::get('/addtext',function(){
+		return view('textadd');
+	});
 //text view
 Route::get('/textview','TextController@view');
 //add text
@@ -25,15 +39,16 @@ Route::post('/store','TextController@store'); //done
 //edit/update text
 Route::get('/editText/{id}','TextController@edit');
 Route::post('/updatetext/{id}','TextController@update');
-
+Route::delete('/delete/text/{id}','TextController@destroy');
 
 //table text
 Route::get('datatabletext', 'TextController@index');
 
-//text editText
+//spreadsheet
+Route::get('/excel', 'VolunteerController@index')->name('index');
+Route::post('import', 'VolunteerController@import')->name('import');
 
 
-//read text
 
 //datatable controller and display table text
 //Route::get('datatabletext','MyDatatablesController@index'); //datatables page

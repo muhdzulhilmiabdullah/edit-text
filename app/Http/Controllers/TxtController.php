@@ -94,3 +94,4 @@ class TxtController extends Controller
         return redirect()->route('text.index'); 
     }
 }
+    

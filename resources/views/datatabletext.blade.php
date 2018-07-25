@@ -32,8 +32,14 @@
                         <td class="center-td">{{ $project->project_name }}</td>
                         <td class="center-td">{{ $project->project_code }}</td>
                         <td class="text_justify">{{ $project->project_text }}</td>
-                        <td><a href="{{url('/editText/{id}')}}" class="btn btn-warning">Edit</a></td>
-                        <td><a href="{{url('TextController@destroy', $project['id'])}}" class="btn btn-danger">Delete</a></td>
+                         <td><a href="{{action('TextController@edit', $project['id'])}}" class="btn btn-warning">Edit</a></td>
+                        <td>
+                              <form action="{{action('TextController@destroy', $project['id'])}}" method="post">
+                                {{csrf_field()}}
+                                <input name="_method" type="hidden" value="DELETE">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                              </form>
+                        </td>
                     </tr>
 
                     @endforeach
