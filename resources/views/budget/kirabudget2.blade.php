@@ -7,7 +7,7 @@
   <div style="max-width: 100%; width: 60vh; margin: auto; margin-top: 100px; border: solid 1px; padding: 20px; border-radius: 10px;">
 
 
-      <form class="form-horizontal" method="POST" action="{{ url('/storebudget')}}">
+      <form class="form-horizontal" method="POST" action="{{ url('/store_budget')}}">
 
                 {{csrf_field()}}
 
@@ -68,6 +68,12 @@
           <label for="project_text">Transport</label>
          <input type="text" class="form-control" name="transport"  placeholder="Transport">
           <small style="font-size: 12px;" id="texthelp" class="form-text text-muted">Total RM transport/week.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="project_text">Weekend</label>
+         <input type="text" class="form-control" name="weekend"  placeholder="Weekend">
+          <small style="font-size: 12px;" id="texthelp" class="form-text text-muted">Total RM weekend/week.</small>
         </div>
 
          <div class="form-group">

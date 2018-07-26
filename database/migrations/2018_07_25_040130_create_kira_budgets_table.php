@@ -25,6 +25,7 @@ class CreateKiraBudgetsTable extends Migration
             $table->string('weekend');
             $table->string('parents');
             $table->string('family');
+            $table->string('total_expenses');
             $table->timestamps();
         });
     }

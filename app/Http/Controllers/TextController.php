@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\TextEdit;
+use App\KiraBudget;
 use DB;
 
 
@@ -15,37 +16,6 @@ class TextController extends Controller
      public function index()
     {
 
-
-    //monthsaving 
-    $monthworking = '2';
-    $cib = '1000';
-    $totalsaving = $monthworking * $cib;//totalsave
-
-    //wishlist
-    $drone ='2099';
-    $wishlist = $totalsaving - $drone;
-
-    //details
-    $salary = '1500'; //eachmonthafterdeductsaving
-
-    //expense
-    $convo = '220';
-    $saman = '100';
-    $nenek = '100';
-    $bill = '50';
-    $minyak = '40' * '4';
-    $makan = '50' * '4';
-    $weekend = '50' * '4';
-
-    //calculation
-    $addexpense = $convo + $saman + $nenek + $minyak + $makan + $bill + $weekend;
-    $finaltotal = $salary - $addexpense;
-    
-    //currentaccount
-    $my = '200'; //bulan 7
-    $mytotal = $finaltotal + $my;
-
-    return dd($mytotal);
 
         $projects = TextEdit::all();
         
@@ -146,25 +116,27 @@ public function KiraBudgetIndex(){
 
     $budgets = KiraBudget::all();
 
-    return view ('budget.kirabudget', compact('budgets'));
+    return view ('budget.budgettable', compact('budgets'));
 }
 
 public function storeBudget(Request $request){
 
+    $percentage = 50;
     $validator = \Validator::make($request->all(), [
-        'salarymonth' => 'required', 
-        'bank' => 'required',
-        'month_working' => 'required,',
-        'bill' => 'required',
-        'loans' => 'required',
-        'food' => 'required',
-        'transport' => 'required',
-        'weekend' => 'required',
-        'parents' => 'required',
+        'salarymonth'   => 'required', 
+        'bank'          => 'required',
+        'month_working' => 'required',
+        'bill'          => 'required',
+        'loans'         => 'required',
+        'food'          => 'required',
+        'transport'     => 'required',
+        'weekend'       => 'required',
+        'parents'       => 'required',
+        'family'        => 'required'
         ]);
 
         if ($validator->fails()) {
-            return redirect ('/addbudget')
+            return redirect ('/add_budget')
             ->withInput()
             ->withErrors($validator->errors());
         }
@@ -176,15 +148,17 @@ public function storeBudget(Request $request){
         $budgets->month_working = $request->month_working;
         $budgets->bill = $request->bill;
         $budgets->loans = $request->loans;
-        $budgets->food = $request->food;
-        $budgets->transport = $request->transport;
-        $budgets->weekend = $request->weekend;
+        $budgets->food = $request->food*4;
+        $budgets->transport = $request->transport*4;
+        $budgets->weekend = $request->weekend*4;
         $budgets->parents = $request->parents;
         $budgets->family = $request->family;
+        $budgets->total_expenses = $budgets->food + $budgets->loans + $budgets->bill + $budgets->transport + $budgets->weekend + $budgets->parents + $budgets->family;
+        //($request->salarymonth*$percentage)/100;
         $budgets->save();
 
 
-        return redirect('budgettable')->with('info','budget saved!');
+        return redirect('/budget_table')->with('info','budget saved!');
 
 }
 

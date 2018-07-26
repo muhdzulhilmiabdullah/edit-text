@@ -17,13 +17,14 @@ Route::get('/',function(){
     });
 
 //kirabudget
-Route::get('/kirabudget',function(){
-        return view('budget.kirabudget');
-    });
-Route::get('/kirabudget2', 'TextController@kirabudgetIndex');
 
+Route::get('/budget_table', 'TextController@kirabudgetIndex');
+Route::get('/add_budget',function(){
+        return view('budget.kirabudget2');
+    });
+Route::post('/store_budget','TextController@storeBudget');
 //updates notes
-Route::get('/updateversion',function(){
+Route::get('/update_version',function(){
         return view('version.updateversion');
     });
 
