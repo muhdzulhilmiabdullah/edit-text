@@ -22,6 +22,9 @@ Route::get('/budget_table', 'TextController@kirabudgetIndex');
 Route::get('/add_budget',function(){
         return view('budget.kirabudget2');
     });
+Route::get('/kira_budget',function(){
+    return view('budget.kirabudget');
+});
 Route::post('/store_budget','TextController@storeBudget');
 //updates notes
 Route::get('/update_version',function(){

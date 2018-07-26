@@ -85,7 +85,7 @@
                 <div class="links">
                     <a href="datatabletext">Text</a>
                     <a href="/excel">Excel Import</a>
-                    <a href="/kira_budget">Kira budjet v1.0</a>
+                    <a href="/kira_budget">Kira budjet v1.0(X)</a>
                     <a href="/budget_table">Kira budjet v2.0</a>
                     <a href="/update_version">Update notes</a>
                     
