@@ -11,11 +11,11 @@
         @yield('content')
     </div>
 
-
+{{csrf_field()}}
         <a href="add_budget" class="btn btn-success" style="margin: 20px;" >Add new budget</a>
 
 <div class="bordertext">
-            <table id="example" class="table table-striped">
+            <table id="example" class="table table-bordered">
                 <thead>
                 <tr>
                     <th>ID</th>

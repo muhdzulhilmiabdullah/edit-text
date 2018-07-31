@@ -36,6 +36,22 @@ Route::get('/update_version',function(){
 	Route::get('/addtext',function(){
 		return view('textadd');
 	});
+
+//printic
+Route::get('/printic','PrintController@getByIcMonth');
+
+Route::get('/test', function(){
+    return view('/ter/tr');
+});
+
+Route::get('/printview/{id}','PrintController@viewT');
+
+Route::get('/test', ['as' => 'test', 'uses' => 'PrintController@getByIcMonth']);
+Route::get('assessment/edit/{id}', ['as' => 'edit','uses' => 'AssessmentController@edit'
+    ]);
+//
+
+
 //text view
 Route::get('/textview','TextController@view');
 //add text

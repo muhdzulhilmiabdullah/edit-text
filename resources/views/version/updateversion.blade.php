@@ -21,5 +21,12 @@
   <li>Purpose is to serve my own financial problems</li>
 </ul>
 
+<strong><p>Print IC/ Project Code (31st July 2018)</p></strong>
+
+<ul style="list-style-type:circle">
+  <li>Table sort by Ic and Project Code</li>
+  <li>Sum total amount according to Project Code</li>
+</ul>
+
 </div>
 @endsection

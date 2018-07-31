@@ -83,6 +83,7 @@
                     <div>Area 51 </div>
 
                 <div class="links">
+                    <a href="/printic">Print IC</a>
                     <a href="datatabletext">Text</a>
                     <a href="/excel">Excel Import</a>
                     <a href="/kira_budget">Kira budjet v1.0(X)</a>
