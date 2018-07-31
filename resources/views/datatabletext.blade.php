@@ -32,7 +32,8 @@
                         <td class="center-td">{{ $project->project_name }}</td>
                         <td class="center-td">{{ $project->project_code }}</td>
                         <td class="text_justify">{{ $project->project_text }}</td>
-                         <td><a href="{{action('TextController@edit', $project['id'])}}" class="btn btn-warning">Edit</a></td>
+                        <td><a href="{{action('TextController@view', $project['id'])}}" class="btn btn-primary">View</a></td>
+                        <td><a href="{{action('TextController@edit', $project['id'])}}" class="btn btn-warning">Edit</a></td>
                         <td>
                               <form action="{{action('TextController@destroy', $project['id'])}}" method="post">
                                 {{csrf_field()}}
@@ -47,13 +48,7 @@
             </table>
 </div>
 
-<script>
 
-    $(document).ready(function() {
-    $('#example').DataTable();
-} );
-
-</script>
 
 
 @endsection

@@ -18,18 +18,21 @@ class PrintController extends Controller
     public function viewT($id){
 
     	$prints = TaxReceipt::find($id);
+
+    	$detail = TaxReceipt::get();
+    	$printGroupByICs = $detail->groupBy('ic');
     	
-    	return view ('ter.tr', compact('prints'));
+    	return view ('ter.show', compact('prints','printGroupByICs'));
 
     }
 
     public function getByIcMonth(){
-
+    	
     
     $prints = TaxReceipt::get();
     $printGroupByICs = $prints->groupBy('ic');
 
-    return view('ter.printable', compact('printGroupByICs','prints'));
+    return view('ter.printable', compact('printGroupByICs'));
 
     }
 

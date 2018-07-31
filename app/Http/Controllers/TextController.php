@@ -22,11 +22,11 @@ class TextController extends Controller
             return view('datatabletext', compact('projects')); //table
     }
 
-    public function view(){
+    public function view($id){
 
-        $projects = TextEdit::get();
+        $projects = TextEdit::find($id);
 
-        return view('textview', compact('projects'));
+        return view('textview', compact('projects','id'));
     }
 
 //add new text
@@ -63,6 +63,8 @@ class TextController extends Controller
      public function edit($id)
     {
         $projects = TextEdit::find($id);
+
+        
         
         return view('textedit', compact('projects','id'));
     }

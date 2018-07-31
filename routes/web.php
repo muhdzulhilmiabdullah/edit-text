@@ -46,6 +46,11 @@ Route::get('/test', function(){
 
 Route::get('/printview/{id}','PrintController@viewT');
 
+Route::get('/show/{ic}', [
+        'as' => 'show',
+        'uses' => 'PrintController@viewT',
+    ]);
+
 Route::get('/test', ['as' => 'test', 'uses' => 'PrintController@getByIcMonth']);
 Route::get('assessment/edit/{id}', ['as' => 'edit','uses' => 'AssessmentController@edit'
     ]);
@@ -53,7 +58,7 @@ Route::get('assessment/edit/{id}', ['as' => 'edit','uses' => 'AssessmentControll
 
 
 //text view
-Route::get('/textview','TextController@view');
+Route::get('/textview/{id}','TextController@view');
 //add text
 Route::post('/store','TextController@store'); //done
 //edit/update text
