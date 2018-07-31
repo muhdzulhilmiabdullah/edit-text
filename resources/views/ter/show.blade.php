@@ -6,7 +6,7 @@
 <h2>SHOW</h2>
 
 
-@foreach ($printGroupByICs as $projectcode => $groupByProjectCode)
+@foreach ($printGroupByICs	 as $projectcode => $groupByProjectCode)
                             
                             @php
                                 $totalAmount = $groupByProjectCode->sum(function($receipt) {
@@ -20,6 +20,7 @@
 
 
 <p>{{$projectcode}}</p>
+<p>{{$totalAmount}}</p>
 
 
 @endforeach

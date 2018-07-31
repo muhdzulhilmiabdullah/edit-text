@@ -50,7 +50,7 @@
                         <td>{{$ic}}</td>
                         <td class="center-td">{{$projectcode}}</td>
                         <td class="center-td">{{$totalAmount}}</td>
-                        <td><a href="{{action('PrintController@viewT', $ic)}}" class="btn btn-info">View</a>
+                        <td><a href="{{action('PrintController@viewT',[$projectcode, $ic])}}" class="btn btn-info">View</a>
                         <a href="" class="btn btn-primary">Edit</a>
                         <td>
                               <form action="" method="post">

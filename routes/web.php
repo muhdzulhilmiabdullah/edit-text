@@ -46,14 +46,10 @@ Route::get('/test', function(){
 
 Route::get('/printview/{id}','PrintController@viewT');
 
-Route::get('/show/{ic}', [
-        'as' => 'show',
-        'uses' => 'PrintController@viewT',
-    ]);
+
 
 Route::get('/test', ['as' => 'test', 'uses' => 'PrintController@getByIcMonth']);
-Route::get('assessment/edit/{id}', ['as' => 'edit','uses' => 'AssessmentController@edit'
-    ]);
+
 //
 
 
