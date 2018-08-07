@@ -7,11 +7,9 @@
  <div id="app">
         @include('flashm')
 
-
         @yield('content')
     </div>
-
-
+         <a href="{{ route('htmltopdfview',['download'=>'pdf']) }}" class="btn btn-warning">Download PDF</a>
         <a href="/addtext" class="btn btn-success" style="margin: 20px;" >Add new text</a>
 
 <div class="bordertext">
@@ -47,9 +45,6 @@
                 </tbody>
             </table>
 </div>
-
-
-
 
 @endsection
 

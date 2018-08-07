@@ -50,7 +50,8 @@ Route::get('/printview/{id}','PrintController@viewT');
 
 Route::get('/test', ['as' => 'test', 'uses' => 'PrintController@getByIcMonth']);
 
-//
+//pdfdom
+Route::get('/htmltopdfview',array('as'=>'htmltopdfview','uses'=>'TextController@htmltopdfview'));
 
 
 //text view
@@ -69,7 +70,7 @@ Route::get('datatabletext', 'TextController@index');
 Route::get('/excel', 'VolunteerController@index')->name('index');
 Route::post('import', 'VolunteerController@import')->name('import');
 
-
+Route::post('/updateauto/{id}','PrintController@updateAuto');
 
 //datatable controller and display table text
 //Route::get('datatabletext','MyDatatablesController@index'); //datatables page

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\TextEdit;
 use App\KiraBudget;
 use DB;
+use PDF;
+
 
 
 class TextController extends Controller
@@ -64,7 +66,7 @@ class TextController extends Controller
     {
         $projects = TextEdit::find($id);
 
-        
+        return dd($projects);
         
         return view('textedit', compact('projects','id'));
     }
@@ -88,6 +90,18 @@ class TextController extends Controller
       $projects->delete();
 
       return redirect('datatabletext');
+    }
+
+
+    public function htmltopdfview(Request $request)
+    {
+        $projects = TextEdit::all();
+        view()->share('projects',$projects);
+        if($request->has('download')){
+            $pdf = PDF::loadView('datatabletext');
+            return $pdf->download('datatabletext');
+        }
+        return view('datatabletext');
     }
 
 public function getHistoryText(request $request){
@@ -155,7 +169,13 @@ public function storeBudget(Request $request){
         $budgets->weekend = $request->weekend*4;
         $budgets->parents = $request->parents;
         $budgets->family = $request->family;
-        $budgets->total_expenses = $budgets->food + $budgets->loans + $budgets->bill + $budgets->transport + $budgets->weekend + $budgets->parents + $budgets->family;
+        $budgets->total_expenses = $budgets->food + 
+                                   $budgets->loans + 
+                                   $budgets->bill + 
+                                   $budgets->transport + 
+                                   $budgets->weekend + 
+                                   $budgets->parents + 
+                                   $budgets->family;
         //($request->salarymonth*$percentage)/100;
         $budgets->save();
 
@@ -164,7 +184,18 @@ public function storeBudget(Request $request){
 
 }
 
-   
+   public function Updatetesting(Request $request, $id){
+
+    $projects = TextEdit::find($id);
+    if($projects->project_code == 1){
+        $projects->project_code = 2;
+        $projects->project_name = 'Hello World';
+        $projects->project_text = 'Please say hello all!!';
+        $projects->save();
+        return redirect('/datatabletext');
+    }
+
+   }
 
 
 }
