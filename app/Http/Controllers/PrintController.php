@@ -16,11 +16,13 @@ class PrintController extends Controller
     }
  
     public function viewT($id){
-    	$detail = TaxReceipt::get();
-    	$prints = TaxReceipt::find($detail->groupBy('ic'));
 
-    	
+    	$prints = TaxReceipt::find($id);
+    	$detail = TaxReceipt::get();
     	$printGroupByICs = $detail->groupBy('ic');
+    	return dd($detail);
+    
+
  
     	return view ('ter.show', compact('prints','printGroupByICs','detail'));
 
@@ -31,7 +33,19 @@ class PrintController extends Controller
     	$prints = TaxReceipt::get();
     	$printGroupByICs = $prints->groupBy('ic');
 
-    return view('ter.printable', compact('printGroupByICs','prints'));
+    	// $groupByProjectCodes = $prints->groupBy(function($receipt) {
+     //                           return $receipt->project_code;
+     //            });
+
+    	
+
+    	// $groupByYears = $prints->groupBy(function($receipt) {
+     //            		return \Carbon\Carbon::createFromFormat('Y-m-d', $receipt->trans_date)->format('Y');
+     //            });
+
+
+
+    	return view('ter.printable', compact('printGroupByICs','prints','groupByProjectCodes','groupByYears'));
 
     }
 
