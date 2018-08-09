@@ -25,7 +25,12 @@ Route::get('/add_budget',function(){
 Route::get('/kira_budget',function(){
     return view('budget.kirabudget');
 });
+//store
 Route::post('/store_budget','TextController@storeBudget');
+//delete
+Route::delete('/delete_budget/{id}','TextController@deleteBudget');
+//sum budget
+Route::get('/budget_total_view','TextController@sumBudget');
 //updates notes
 Route::get('/update_version',function(){
         return view('version.updateversion');
@@ -44,8 +49,8 @@ Route::get('/test', function(){
     return view('/ter/tr');
 });
 
-Route::get('/printview/{id}','PrintController@viewT');
 
+Route::get('/printview/{projectcode}/{ic}/{amount}', 'PrintController@viewT')->name('viewT');
 
 
 Route::get('/test', ['as' => 'test', 'uses' => 'PrintController@getByIcMonth']);

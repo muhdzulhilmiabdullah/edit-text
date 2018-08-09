@@ -22,7 +22,8 @@
                 <tr>
                    
                     <th>NRIC</th>
-                    <th>Project Code</th>
+                    <th>Year</th>
+                     <th>Project Code</th>
                     <th>Total Amount</th>
                     <td colspan="2">Action</td>
                 </tr>
@@ -30,38 +31,47 @@
                 <tbody>
                         
                         @foreach($printGroupByICs as $ic => $print)
-                             
+                         
                             @php
-                                $groupByProjectCodes = $print->groupBy(function($receipt) {
-                                return $receipt->project_code;
+                            $groupByProjectCodes = $print->groupBy(function($receipt) {
+                        return $receipt->project_code;
 
                             });
+
+                            $groupByYears = $print->groupBy(function($receipt) {
+                        return \Carbon\Carbon::createFromFormat('Y-m-d', $receipt->trans_date)->format('Y'); 
+
+                        });
 
                             @endphp
 
                         @foreach ($groupByProjectCodes as $projectcode => $groupByProjectCode)
-                            
+                        @foreach ($groupByYears as $year => $groupByYear)
+                     
                             @php
-                                $totalAmount = $groupByProjectCode->sum(function($receipt) {
-                                return $receipt->amount;
+                            $totalAmount = $groupByProjectCode->sum(function($receipt) {
+                        return $receipt->amount;
                                     
-                            });
-                               
+                        });
                                         
                             @endphp
                    
                     <tr>
-                       
+                        
                         <td>{{$ic}}</td>
+                        <td>{{$year}}</td>
                         <td class="center-td">{{$projectcode}}</td>
                         <td class="center-td">{{$totalAmount}}</td>
-                        <td><a href="{{action('PrintController@viewT',[$projectcode, $ic])}}" class="btn btn-info">View</a>
+                        <td><a href="{{route('viewT', ['projectcode'=>$projectcode, 'ic'=>$ic, 'amount'=>$totalAmount])}}" class="btn btn-info">View</a>
                         <a href="" class="btn btn-primary">Edit</a>
                         
                     </tr>
                         @endforeach
                         @endforeach  
-                      
+                        @endforeach
+                  
+                  
+                     
                 </tbody>
 
             </table>

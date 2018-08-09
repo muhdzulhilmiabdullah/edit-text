@@ -15,16 +15,63 @@ class PrintController extends Controller
     	return view ('ter.printable', compact('prints'));
     }
  
-    public function viewT($id){
+    public function viewT($id, $ic, $amount){
 
-    	$prints = TaxReceipt::find($id);
-    	$detail = TaxReceipt::get();
-    	$printGroupByICs = $detail->groupBy('ic');
-    	return dd($detail);
+    	
+    	$prints = TaxReceipt::where('ic', $ic)->where('project_code', $id)->where('amount',$amount)->first();
+    	$receipts = TaxReceipt::where('ic', $ic)->where('project_code', $id)->get();
     
+        $printGroupByICs = $receipts->groupBy('ic');
+    	
+    	return dd($printGroupByICs);
 
- 
-    	return view ('ter.show', compact('prints','printGroupByICs','detail'));
+    	return view('ter.show', compact('prints','printGroupByICs'));
+
+
+
+
+
+   //    return view ('ter.show')->with([
+   //    'account_holder'    => $prints->account_holder,
+   //    'ic'                => $prints->ic,
+   //    'add1'              => $prints->add1,
+   //    'add2'              => $prints->add2,
+   //    'add3'              => $prints->add3,
+   //    'add4'              => $prints->add4,
+   //    'postcode'          => $prints->postcode,
+   //    'state'             => $prints->state,
+   //    'channel'           => $prints->channel,
+   //    'trans_date'        => date('j F Y',strtotime($prints->trans_date)),
+   //    'tdm_trans_date'    => date('d-m-Y',strtotime($prints->trans_date)),
+   //  //'amount_in_words'   => $numToWord->convertNumber($prints->amount),
+   //    'amount'			 => $prints->amount,
+   //    'payment_mode'      => $prints->payment_mode,
+   //    'remarks'           => $prints->remarks,
+   //    'email'             => $prints->email,
+   //    'status'            => $prints->status,
+   // // 'added_by'          => User::find($prints->added_by)->first_name,
+   // // 'issued_by'         => $issued_by,
+   // // 'todate'            => $todate,
+   //    'toyear'            => date('Y'),
+   //    'trans_year'        => date('Y',strtotime($prints->trans_date)),
+   //    'tomonth'           => date('M'),
+   //    'trans_month'       => date('M',strtotime($prints->trans_date)),
+   //    'project_code'      => $prints->project_code,
+   // // 'project_name'      => $project_name,
+   // // 'project_nice_name' => $project_nice_name,
+   //    'thankyou'          => $prints->thankyou,
+   //    'attn_person'       => $prints->attn_person,
+   //    'attn_designation'  => $prints->attn_designation,
+   //    'receipt_for'       => $prints->receipt_for,
+   // // 'all_project_name'  => $all_project_name,
+   // // 'project_text'      => $project_text,
+   //    'dato'              => 'Dato’ Mohd Farid Ariffin',
+   //    'president'         => 'Presiden / President',
+   //    'makna'             => 'Majlis Kanser Nasional',
+   //    'prints'            => $prints,
+   //    'printGroupByICs'   => $printGroupByICs
+      
+   //  ]);
 
     }
 
@@ -45,7 +92,7 @@ class PrintController extends Controller
 
 
 
-    	return view('ter.printable', compact('printGroupByICs','prints','groupByProjectCodes','groupByYears'));
+    	return view('ter.printable', compact('printGroupByICs','prints'));
 
     }
 
