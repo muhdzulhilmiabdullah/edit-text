@@ -29,6 +29,21 @@
         </div>
 
         <div class="form-group">
+          <label for="project_code">Total Saving</label>
+          <select class="form-control" name="saving">
+            <option>15</option>
+            <option>20</option>
+            <option>25</option>
+            <option>30</option>
+            <option>35</option>
+            <option>40</option>
+            <option>45</option>
+            <option>50</option>
+          </select>
+           <small style="font-size: 12px" id="texthelp" class="form-text text-muted">Choose your total saving permonth.</small>
+        </div>
+
+        <div class="form-group">
           <label for="project_code">Bank</label>
           <select class="form-control" name="bank">
             <option>CIMB</option>
@@ -38,6 +53,27 @@
           </select>
            <small style="font-size: 12px" id="texthelp" class="form-text text-muted">Choose your Bank.</small>
         </div>
+
+         <div class="form-group">
+          <label for="month">Month</label>
+          <select class="form-control" name="month">
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+            <option>November</option>
+            <option>December</option>
+          </select>
+           <small style="font-size: 12px" id="texthelp" class="form-text text-muted">Data for month?</small>
+        </div>
+
+
 
         <div class="form-group">
           <label for="project_text">Month working</label>

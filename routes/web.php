@@ -35,6 +35,7 @@ Route::get('/budget_total_view','TextController@sumBudget');
 Route::get('/update_version',function(){
         return view('version.updateversion');
     });
+Route::get('/viewbudget/{id}','TextController@viewBudget');
 
 
 //addtext
@@ -50,7 +51,7 @@ Route::get('/test', function(){
 });
 
 
-Route::get('/printview/{projectcode}/{ic}/{amount}', 'PrintController@viewT')->name('viewT');
+Route::get('/printview/{ic}/{id}/{amount}', 'PrintController@viewT')->name('viewT');
 
 
 Route::get('/test', ['as' => 'test', 'uses' => 'PrintController@getByIcMonth']);

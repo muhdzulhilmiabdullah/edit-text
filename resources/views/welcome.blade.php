@@ -81,6 +81,7 @@
                 <img src="https://www.artlogic.com.au/sites/default/files/imagecache/product_full/graham-s-area-51-artlogic.jpg" width="20%">
                 <div  style="font-weight: medium;" class="title m-b-md">
                     <div>Area 51 </div>
+                    <div style="font-size: 30px;">This is a testing site</div>
 
                 <div class="links">
                     <a href="/printic">Print IC</a>
