@@ -28,5 +28,19 @@
   <li>Sum total amount according to Project Code</li>
 </ul>
 
+<strong><p>View Budge (20th August 2018)</p></strong>
+
+<ul style="list-style-type:circle">
+  <li>Add page to view budget permonth added</li>
+  <li>Organized easy to read for user</li>
+</ul>
+
+<strong><p>Added Daily Budget (S = 8/10/2018, C = ?)</p></strong>
+
+<ul style="list-style-type:circle">
+  <li>Calculate daily expsenses</li>
+  <li>Homepage Done </li>
+</ul>
+
 </div>
 @endsection

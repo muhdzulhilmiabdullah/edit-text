@@ -20,11 +20,10 @@
                 <thead>
 
                 <tr>
-                   
+                  
                     <th>NRIC</th>
                     <th>Year</th>
                      <th>Project Code</th>
-                    <th>Total Amount</th>
                     <td colspan="2">Action</td>
                 </tr>
                 </thead>
@@ -43,33 +42,37 @@
 
                         });
 
+                            $groupByAccountHolders = $print->groupBy(function($receipt) {
+                            return $receipt->account_holder;
+                        });
+
                             @endphp
 
                         @foreach ($groupByProjectCodes as $projectcode => $groupByProjectCode)
                         @foreach ($groupByYears as $year => $groupByYear)
                      
-                            @php
+
+                     
+                           <!--  @php
                             $totalAmount = $groupByProjectCode->sum(function($receipt) {
                         return $receipt->amount;
                                     
                         });
                                         
-                            @endphp
+                            @endphp -->
                    
                     <tr>
-                        
+                      
                         <td>{{$ic}}</td>
                         <td>{{$year}}</td>
                         <td class="center-td">{{$projectcode}}</td>
-                        <td class="center-td">{{$totalAmount}}</td>
-                        <td><a href="{{route('viewT', ['projectcode'=>$projectcode, 'ic'=>$ic, 'amount'=>$totalAmount])}}" class="btn btn-info">View</a>
+                        <td><a href="{{route('viewT', ['ic'=>$ic, 'id'=>$projectcode])}}" class="btn btn-info">View</a>
                         <a href="" class="btn btn-primary">Edit</a>
-                        
+                       
                     </tr>
                         @endforeach
                         @endforeach  
                         @endforeach
-                  
                   
                      
                 </tbody>

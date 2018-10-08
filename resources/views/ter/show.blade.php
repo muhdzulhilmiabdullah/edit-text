@@ -11,16 +11,16 @@
         <img align="right" src="http://makna.org.my/wp-content/uploads/2013/04/MAKNA-Logo-Colour-Small.jpg" height="100" width="100" style="margin-top: -5px; margin-right:10px;"/>
         <div style="line-height:6px;font-size:smaller;font-weight:600;font-style: italic;">
             <p style="margin-bottom:25px">$todate</p>
-            <p>{{$prints->account_holder}}</p>
-            <p id="pre_add1">{{$prints->add1}}</p>
-            <p id="pre_add2">{{$prints->add2}}</p>
-            <p id="pre_add23">{{$prints->add3}}</p>
-            <p id="pre_add3">{{$prints->postcode}}, {{$prints->add4}}, {{strtoupper($prints->state)}}</p>
+            <p>{{$account_holder}}</p>
+            <p id="pre_add1">{{$add1}}</p>
+            <p id="pre_add2">{{$add2}}</p>
+            <p id="pre_add23">{{$add3}}</p>
+            <p id="pre_add3">{{$postcode}}, {{$add4}}, {{strtoupper($state)}}</p>
             <p id="pre_attn" style="margin-top:15px;"></p>
             <br>
     </div>
     <div style="font-size:14px; text-align: justify; text-justify: inter-word;">
-            <p>Dear {{strtoupper($prints->account_holder)}}</p>
+            <p>Dear {{strtoupper($account_holder)}}</p>
             <p style="color:#d8609e; font-size: medium;"><b> THANK YOU FOR YOUR KINDNESS</b></p>
             <p>project_text</p> 
           </div>
@@ -36,10 +36,10 @@
         <div style="font-size:smaller">
         <img align="left" src="http://makna.org.my/wp-content/uploads/2013/04/MAKNA-Logo-Colour-Small.jpg" height="100" width="100" style="margin-top: -5px; margin-bottom:5px;"/>
           <div style="line-height:6px;font-size:smaller;font-weight:600;font-style: italic;">
-          <p style="font-size:16px; color:#000; margin-right: 100px;"  align="right" >{{$prints->trans_year}} TAX EXEMPT RECEIPT</p>
+          <p style="font-size:16px; color:#000; margin-right: 100px;"  align="right" >{{$trans_year}} TAX EXEMPT RECEIPT</p>
             <p style="margin-top:20px;"align="right">
             Receipt No: <span id="receipt_copy"></span><br><br>
-            Date of Donation: {{$prints->trans_date}}</p>
+            Date of Donation: {{$trans_date}}</p>
         </div>
 
         <div align:"left" style="font-size:smaller">
@@ -47,13 +47,13 @@
             <tr style="height:40px;">
               <td style="width:30%;">Diterima dari<br>
                       <i>Received from</i></td>
-              <td style="border-bottom: 1px solid #000000;">{{strtoupper($prints->account_holder)}}</td>
+              <td style="border-bottom: 1px solid #000000;">{{strtoupper($account_holder)}}</td>
             </tr>
 
              <tr style="height:40px;">
               <td style="width:30%;" id="nric_title">No. Kad Pengenalan/Pasport<br>
                       <i>NRIC/Passport</i></td>
-             <td style="border-bottom: 1px solid #000000;" id="nric">{{strtoupper($prints->ic)}}</td>
+             <td style="border-bottom: 1px solid #000000;" id="nric">{{strtoupper($ic)}}</td>
             </tr>
 
             <tr style="height:40px;">
@@ -64,7 +64,7 @@
 
             <tr style="height:40px;">
               <td style="width:30%;">untuk<br><i>for</i></td>
-              <td style="border-bottom: 1px solid #000000; font-size: 16px; font-weight: bold; color: #d8609e;  " class="donationYearNiceName">DERMA- {{$prints->project_code}} </td>
+              <td style="border-bottom: 1px solid #000000; font-size: 16px; font-weight: bold; color: #d8609e;  " class="donationYearNiceName">DERMA- {{$project_code}} </td>
            </tr>
           </table>
         </div>
@@ -72,16 +72,16 @@
         <div style="font-size:small">
           <p align="left" style="margin-top:20px;">
             RM  <span style="border-bottom: 1px solid #000000;padding-left:60px;padding-right:60px;font-size: large;">
-                  <strong>{{$prints->amount}}/=</strong></p>
-                  @if($prints->payment_mode == 'ATM/Counter')
+                  <strong>{{$totalAmount}}/=</strong></p>
+                  @if($payment_mode == 'ATM/Counter')
                   <p align="left" style="font-size:16px; margin-left: 6vh; margin-top: -10px;">ATM/Counter</p>
-                  @elseif($prints->payment_mode == 'Credit Card')
+                  @elseif($payment_mode == 'Credit Card')
                   <p align="left" style="font-size:16px; margin-left: 3vh; margin-top: -10px;">Kad Kredit/Credit Card</p>
-                  @elseif($prints->payment_mode == 'Cheque')
+                  @elseif($payment_mode == 'Cheque')
                   <p align="left" style="font-size:16px; margin-left: 6.5vh; margin-top: -10px;">Cek/Cheque</p>
-                  @elseif($prints->payment_mode == 'Malaysian Postal Order')
+                  @elseif($payment_mode == 'Malaysian Postal Order')
                   <p align="left" style="font-size:16px; margin-left: 5vh; margin-top: -10px;">WPM/MPO</p>
-                  @elseif($prints->payment_mode == 'Online Transfer')
+                  @elseif($payment_mode == 'Online Transfer')
                   <p align="left" style="font-size:16px; margin-top: -10px;">Perbankan Internet/Internet Banking</p>
                   @else
                   <p align="left" style="font-size:16px; margin-left: 5vh; margin-top: -10px;">Cash</p>
@@ -100,8 +100,8 @@
         </div>
        
         <p style="border-bottom: 2px dashed #000000;margin-top:1px;" class="page-break"></p>
-        <p style="font-size:14px; font-weight:bold; color:#000">Derma- DERMA {{$prints->project_code}}</p>
-        <p style="font-size:14px; font-weight:bold; color:#000; margin-top: -10px;">{{$prints->trans_year}} STATEMENT</p>
+        <p style="font-size:14px; font-weight:bold; color:#000">Derma- DERMA {{$project_code}}</p>
+        <p style="font-size:14px; font-weight:bold; color:#000; margin-top: -10px;">{{$trans_year}} STATEMENT</p>
 
    <div class="row">
       <div class="col-md-12">

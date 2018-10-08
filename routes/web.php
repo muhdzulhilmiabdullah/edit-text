@@ -37,6 +37,12 @@ Route::get('/update_version',function(){
     });
 Route::get('/viewbudget/{id}','TextController@viewBudget');
 
+//budgetlist 
+Route::get('/budgetlist','BudgetListController@budgetIndex');
+Route::get('/budgetview/{id}','BudgetListController@budgetView');
+Route::get('/budgetedit/{id}','BudgetListController@budgetEdit');
+Route::post('/budgetupdate/{id}', 'BudgetListController@budgetUpdate');
+Route::delete('/budgetdelete/{id}','BudgetListController@budgetDelete');
 
 //addtext
 	Route::get('/addtext',function(){
@@ -49,17 +55,11 @@ Route::get('/printic','PrintController@getByIcMonth');
 Route::get('/test', function(){
     return view('/ter/tr');
 });
-
-
-Route::get('/printview/{ic}/{id}/{amount}', 'PrintController@viewT')->name('viewT');
-
-
+Route::get('/printview/{ic}/{id}', 'PrintController@viewT')->name('viewT');
 Route::get('/test', ['as' => 'test', 'uses' => 'PrintController@getByIcMonth']);
 
 //pdfdom
 Route::get('/htmltopdfview',array('as'=>'htmltopdfview','uses'=>'TextController@htmltopdfview'));
-
-
 //text view
 Route::get('/textview/{id}','TextController@view');
 //add text
@@ -68,9 +68,17 @@ Route::post('/store','TextController@store'); //done
 Route::get('/editText/{id}','TextController@edit');
 Route::post('/updatetext/{id}','TextController@update');
 Route::delete('/delete/text/{id}','TextController@destroy');
-
 //table text
 Route::get('datatabletext', 'TextController@index');
+
+//DailyBudget 
+Route::get('/dailybudget/home', function(){
+    return view('/dailybudget.home');
+});
+//Add daily budget
+Route::get('/dailybudget/add', function(){
+    return view('/dailybudget.add');
+});
 
 //spreadsheet
 Route::get('/excel', 'VolunteerController@index')->name('index');

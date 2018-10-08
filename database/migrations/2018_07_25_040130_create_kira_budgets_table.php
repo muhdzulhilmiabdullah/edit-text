@@ -15,7 +15,9 @@ class CreateKiraBudgetsTable extends Migration
     {
         Schema::create('kira_budgets', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('saving');
             $table->integer('salarymonth');
+            $table->text('month');
             $table->string('bank');
             $table->string('month_working');
             $table->string('bill');
@@ -26,6 +28,7 @@ class CreateKiraBudgetsTable extends Migration
             $table->string('parents');
             $table->string('family');
             $table->string('total_expenses');
+            $table->string('balance_to_spend');
             $table->timestamps();
         });
     }

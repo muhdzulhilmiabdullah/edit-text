@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Area 51</title>
+        <title>Testing ground</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -80,8 +80,8 @@
             <div class="content">
                 <img src="https://www.artlogic.com.au/sites/default/files/imagecache/product_full/graham-s-area-51-artlogic.jpg" width="20%">
                 <div  style="font-weight: medium;" class="title m-b-md">
-                    <div>Area 51 </div>
-                    <div style="font-size: 30px;">This is a testing site</div>
+                    <div>Testing ground </div>
+                    <p style="font-size: 30px;font-weight: bold;">This is a testing site</p>
 
                 <div class="links">
                     <a href="/printic">Print IC</a>
@@ -89,6 +89,7 @@
                     <a href="/excel">Excel Import</a>
                     <a href="/kira_budget">Kira budjet v1.0(X)</a>
                     <a href="/budget_table">Kira budjet v2.0</a>
+                    <a href="/dailybudget/home">Daily Budget Alpha1.0</a>
                     <a href="/update_version">Update notes</a>
                     
                 </div>
