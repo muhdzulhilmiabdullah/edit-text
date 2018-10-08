@@ -4,27 +4,27 @@
 
 Version Notes:
 
-Kira Budget v1.0 (24th July 2018)
--Using Javascript for realtime calculation
--Learning JavaScript
--Purpose is to serve my own financial problems
+Kira Budget v1.0 (24th July 2018)<br>
+-Using Javascript for realtime calculation<br>
+-Learning JavaScript<br>
+-Purpose is to serve my own financial problems<br><br>
 
-Kira Budget v2.0 (alpha stage)
--Upgraded to Server-Processing
--Store in Database for future reference
--Purpose is to serve my own financial problems
+Kira Budget v2.0 (alpha stage)<br>
+-Upgraded to Server-Processing<br>
+-Store in Database for future reference<br>
+-Purpose is to serve my own financial problems<br><br>
 
-Print IC/ Project Code (31st July 2018)
--Table sort by Ic and Project Code
--Sum total amount according to Project Code
+Print IC/ Project Code (31st July 2018)<br>
+-Table sort by Ic and Project Code<br>
+-Sum total amount according to Project Code<br><br>
 
-View Budget (20th August 2018)
--Add page to view budget permonth added
--Organized easy to read for user
+View Budget (20th August 2018)<br>
+-Add page to view budget permonth added<br>
+-Organized easy to read for user<br><br>
 
-Added Daily Budget (S = 8/10/2018, C = ?)
--Calculate daily expsenses
--Homepage Done
+Added Daily Budget (S = 8/10/2018, C = ?)<br>
+-Calculate daily expsenses<br>
+-Homepage Done<br><br>
 
 
 
