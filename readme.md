@@ -1,10 +1,10 @@
 <img src="https://www.artlogic.com.au/sites/default/files/imagecache/product_full/graham-s-area-51-artlogic.jpg" width="20%">
-## About Area 51
-- Testing before deploying / self web app for ease my everyday life.
+## About Area 51<br>
+- Testing before deploying / self web app for ease my everyday life.<br><br>
 
 Version Notes:
 
-Kira Budget v1.0 (24th July 2018)<br>
+<bold>Kira Budget v1.0 (24th July 2018)</bold><br>
 -Using Javascript for realtime calculation<br>
 -Learning JavaScript<br>
 -Purpose is to serve my own financial problems<br><br>
