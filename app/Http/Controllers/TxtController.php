@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Txt;
 use App\TextEdit;
 use Illuminate\Http\Request;
+use QrCode;
 
 class TxtController extends Controller
 {
@@ -92,6 +93,20 @@ class TxtController extends Controller
         $textedit->delete();
         flash()->success('A text has been deleted.')->important();
         return redirect()->route('text.index'); 
+    }
+
+    public function qrCode()
+    {   //$test = TextEdit::find($id); //fetch data donor
+        //$profile_link = $test->pdflink; // pull data untuk saved pdf link 
+        //$qr_code = Qrcode::generate($profilelink); // generate qr code dari link 
+        //$qr_size = Qrcode::size(250); // set size qr code
+
+        $test = QrCode::size(250);
+        $phonenumber = '0168591243';
+        $email = 'contact@muhdzulhilmiabdullah.com';
+        $instagram ='https://www.instagram.com/muhdzulhilmiabdullah';
+        $whatsapp = 'https://api.whatsapp.com/send?phone=+60168591243&text=hey';
+        return view('/qr.qr_view', compact('test','phonenumber','email','instagram','whatsapp'));
     }
 }
     

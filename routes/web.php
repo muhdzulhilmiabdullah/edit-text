@@ -91,6 +91,8 @@ Route::post('/updateauto/{id}','PrintController@updateAuto');
 //Route::get('get-data-my-datatables', ['as'=>'get.data','uses'=>'MyDatatablesController@getData']); //getdata
 
 Auth::routes();
+//qr code routes
+Route::get('/qr-code', 'TxtController@qrCode');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 

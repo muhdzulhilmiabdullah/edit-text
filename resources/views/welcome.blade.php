@@ -91,6 +91,7 @@
                     <a href="/budget_table">Kira budjet v2.0</a>
                     <a href="/dailybudget/home">Daily Budget Alpha1.0</a>
                     <a href="/update_version">Update notes</a>
+                    <a href="/qr-code">qr</a>
                     
                 </div>
             </div>
